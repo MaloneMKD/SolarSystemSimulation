@@ -2,6 +2,9 @@
 
 A real-time, interactive 3D visualization of our solar system built using **Three.js**. This project was developed as part of a Computer Graphics curriculum to demonstrate key concepts in 3D rendering, hierarchical scene graphing, and texture mapping.
 
+<img width="1918" height="866" alt="Screenshot_1" src="https://github.com/user-attachments/assets/41b61ba1-dc6a-421a-a5ac-13de9847ab2c" />
+
+
 ## 🌟 Features
 
 * **Realistic Textures**: High-resolution spherical mapping using planetary surface data.
@@ -28,6 +31,30 @@ To run this project locally, you need a modern web browser and a local developme
 * **index.html** - Application entry point.
 
 * **style.css** - Canvas styling and UI layout.
+
+
+### Installation & Execution
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/MaloneMKD/SolarSystemSimulation.git](https://github.com/MaloneMKD/SolarSystemSimulation.git)
+   cd SolarSystemSimulation
+   
+2. **Navigate to the source folder:**
+```bash
+cd src
+```
+
+3. **Install dependencies:**
+
+```bash
+npm install
+Run the development server:
+```
+
+```Bash
+npm run dev
+```
+Once the server is running, the terminal will provide a local URL (usually `http://localhost:5173`) which you can open in your browser to view the simulation.
 
 ## 📜 Credits
 
