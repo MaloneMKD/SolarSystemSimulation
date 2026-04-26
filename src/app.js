@@ -75,19 +75,26 @@ scene.background = cubeTextureLoader.load([
     starsBG2
 ]);
 
+    // Light
+const ambientLight = new THREE.AmbientLight("#ffffff", 0.012);
+scene.add(ambientLight);
+
     // Sun
 const sunGeometry = new THREE.SphereGeometry(52, 32, 32);
 const sunMaterial = new THREE.MeshBasicMaterial({
-    map: textureLoader.load(sunTexture)
+    map: textureLoader.load(sunTexture), transparent: true
 })
 const sun = new THREE.Mesh(sunGeometry, sunMaterial);
 scene.add(sun);
 
+    // Sun light
+const sunlight = new THREE.PointLight("#ffffff", 140000, 50000);
+scene.add(sunlight);
 
 // Function to create planets
 function createPlanet(radius, texture, xPosition, ring) {
     const geometry = new THREE.SphereGeometry(radius, 32, 32);
-    const material = new THREE.MeshBasicMaterial({
+    const material = new THREE.MeshStandardMaterial({
         map: textureLoader.load(texture)
     });
     const planet = new THREE.Mesh(geometry, material);
@@ -95,7 +102,7 @@ function createPlanet(radius, texture, xPosition, ring) {
 
     if(ring) {
         const ringGeometry = new THREE.RingGeometry(ring.innerRadius, ring.outerRadius, 32);
-        const ringMaterial = new THREE.MeshBasicMaterial({
+        const ringMaterial = new THREE.MeshStandardMaterial({
             map: textureLoader.load(ring.texture),
             side: THREE.DoubleSide,
             transparent: true
@@ -115,7 +122,7 @@ function createPlanet(radius, texture, xPosition, ring) {
 function createMoon(radius, texture, distance)
 {
     const moonGeometry = new THREE.SphereGeometry(radius, 32, 32);
-    const moonMaterial = new THREE.MeshBasicMaterial({
+    const moonMaterial = new THREE.MeshStandardMaterial({
         map: textureLoader.load(texture)
     });
     const moon = new THREE.Mesh(moonGeometry, moonMaterial);
@@ -339,8 +346,6 @@ function animate() {
         controls.target = new THREE.Vector3(0, 0, 0);
         controls.update();
     }
-
-    console.log(camera.position);
 
     // Render the scene
     renderer.render(scene, camera);
